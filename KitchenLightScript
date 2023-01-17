@@ -1,0 +1,16 @@
+script:
+    alias: Welcome Home Light
+    sequence:
+      - if:
+          - condition: device
+            type: is_off
+            entity_id: light.some_light
+        then:
+          - type: turn_on
+            entity_id: light.some_light
+          - delay:
+              minutes: 10
+          - type: turn_off
+            entity_id: light.some_light
+    mode: single
+    icon: mdi:lightbulb-auto-outline
